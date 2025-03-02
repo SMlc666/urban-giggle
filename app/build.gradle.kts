@@ -20,7 +20,7 @@ android {
                 abiFilters.add("arm64-v8a")
             }
             cmake {
-                cppFlags += "-std=c++17"
+                cppFlags += "-std=c++20"
             }
         }
     }
