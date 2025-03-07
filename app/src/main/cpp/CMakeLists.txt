@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.10...3.31.5)
 project("mineraft_toolbox")
+include(FetchContent)
 find_package(shadowhook REQUIRED CONFIG)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
+FetchContent_MakeAvailable(json)
 file(GLOB TOOLBOX_SOURCES
         "native-lib.cpp"
-        "include/*.cpp"
-        "include/*/*.cpp"
-        "include/*/*/*.cpp"
+        "include/KittyMemory/*.cpp”
+        “include/Lua/*.c"
         "src/*.cpp"
         "src/*/*.cpp"
         "src/*/*/*.cpp"
@@ -23,6 +25,7 @@ set(TOOLBOX_SHARED_LIBRARIES
 set(TOOLBOX_STATIC_LIBRARIES
         frida-gum
         keystone
+        nlohmann_json::nlohmann_json
 )
 set(TOOLBOX_STATIC_LINK_DIRS
         "include/Keystone/"

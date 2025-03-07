@@ -1,6 +1,7 @@
 package com.shenmo.mineraft_toolbox
 
 import android.util.Log
+import com.shenmo.mineraft_toolbox.instance.instance
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -12,6 +13,10 @@ class XposedMain  : IXposedHookLoadPackage {
                 Log.d("ToolBox", "find MinecraftPE")
                 System.loadLibrary("mineraft_toolbox")
                 Log.d("ToolBox", "load mineraft_toolbox library")
+                val Instance = instance(
+                )
+                val manager = Instance.getManager()
+                Log.d("ToolBox", "manager: $manager")
             }
         }
     }

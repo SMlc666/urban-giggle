@@ -3,9 +3,10 @@
 //
 
 #include "MemTool.hpp"
-#include <shadowhook.h>
 #include "Init/Init.hpp"
 #include <format>
+#include <jni.h>
+#include <shadowhook.h>
 [[maybe_unused]] Init init_MemTool("init_MemTool", []() {
   int code = shadowhook_init(shadowhook_mode_t::SHADOWHOOK_MODE_UNIQUE, false);
   if (code != SHADOWHOOK_ERRNO_OK) {

@@ -4,9 +4,17 @@
 
 #ifndef MBLOADER_MEMTOOL_HPP
 #define MBLOADER_MEMTOOL_HPP
-#include <string>
+#include "KittyMemory/KittyInclude.hpp"
+#include <format>
 #include <shadowhook.h>
+#include <string>
 namespace MemTool {
+template <typename T> inline T getModuleBase(const std::string &moduleName) {
+  KittyScanner::ElfScanner Module =
+      KittyScanner::ElfScanner::createWithPath(moduleName);
+  uintptr_t base = Module.baseSegment().startAddress;
+  return reinterpret_cast<T>(base);
+}
 class [[maybe_unused]] Hook {
 public:
   Hook() = default;
@@ -21,7 +29,9 @@ public:
     if (mStub == nullptr) {
       int error_num = shadowhook_get_errno();
       const char* error_msg = shadowhook_to_errmsg(error_num);
-      throw std::runtime_error(std::format("shadowhook_init failed with code ,errornum, msg: {} {} {}",code,error_num,error_msg));
+      throw std::runtime_error(
+          std::format("shadowhook_init failed with errornum, msg: {} {}",
+                      error_num, error_msg));
     }
   }
   template <typename T>
@@ -35,7 +45,9 @@ public:
     if (mStub == nullptr) {
       int error_num = shadowhook_get_errno();
       const char* error_msg = shadowhook_to_errmsg(error_num);
-      throw std::runtime_error(std::format("shadowhook_init failed with code ,errornum, msg: {} {} {}",code,error_num,error_msg));
+      throw std::runtime_error(
+          std::format("shadowhook_init failed with  errornum, msg: {} {}",
+                      error_num, error_msg));
     }
   }
   ~Hook();
