@@ -14,7 +14,7 @@
     const char* error_msg = shadowhook_to_errmsg(error_num);
     throw std::runtime_error(std::format("shadowhook_init failed with code ,errornum, msg: {} {} {}",code,error_num,error_msg));
   }
-});
+},10000);
 MemTool::Hook::~Hook() {
   if (mAutoDestroy) {
     shadowhook_unhook(mStub);
