@@ -7,11 +7,19 @@
 #include <unordered_map>
 #include <string>
 #include <functional>
-extern std::unordered_map<std::string, std::function<void()>> InitList;
+struct init_list {
+  std::function<void()> func;
+  int priority;
+};
+extern std::unordered_map<std::string, init_list> InitList;
 
 class Init {
 public:
-  Init(const std::string& name, std::function<void()> func);
+  Init(const std::string &name, std::function<void()> func, int mpriority = 0);
+  [[nodiscard]] int getPriority() const;
+
+private:
+  int priority;
 };
 
 
