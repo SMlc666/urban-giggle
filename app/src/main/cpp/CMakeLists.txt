@@ -8,9 +8,15 @@ file(GLOB TOOLBOX_SOURCES
         "native-lib.cpp"
         "include/KittyMemory/*.cpp”
         “include/Lua/*.c"
-        "src/*.cpp"
-        "src/*/*.cpp"
-        "src/*/*/*.cpp"
+        "src/Test/*.cpp"
+        "src/Minecraft/*.cpp"
+        "src/Minecraft/Hooks/*.cpp"
+        "src/MemTool/*.cpp"
+        "src/Instance/*.cpp"
+        "src/Init/*.cpp"
+        "src/Module/*.cpp"
+        "src/Module/Manager/*.cpp"
+        "src/Script/*.cpp"
 )
 set(TOOLBOX_INCLUDE_DIRS
     "include"
