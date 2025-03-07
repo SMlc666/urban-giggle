@@ -16,6 +16,8 @@ file(GLOB TOOLBOX_SOURCES
         "src/Test/*.cpp"
         "src/Minecraft/*.cpp"
         "src/Minecraft/Hooks/*.cpp"
+        "src/Minecraft/Event/*.cpp"
+        "src/Minecraft/Event/Events/*.cpp"
         "src/MemTool/*.cpp"
         "src/Instance/*.cpp"
         "src/Init/*.cpp"
