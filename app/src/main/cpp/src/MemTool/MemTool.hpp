@@ -10,12 +10,13 @@
 #include <string>
 namespace MemTool {
 template <typename T> inline T getModuleBase(const std::string &moduleName) {
-  KittyScanner::ElfScanner Module =
-      KittyScanner::ElfScanner::createWithPath(moduleName);
-  uintptr_t base = Module.baseSegment().startAddress;
-  return reinterpret_cast<T>(base);
-}
-class [[maybe_unused]] Hook {
+    KittyScanner::ElfScanner Module =
+            KittyScanner::ElfScanner::createWithPath(moduleName);
+    uintptr_t base = Module.baseSegment().startAddress;
+    return reinterpret_cast<T>(base);
+  }
+
+  class [[maybe_unused]] Hook {
 public:
   Hook() = default;
   template <typename T>

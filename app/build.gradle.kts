@@ -20,7 +20,7 @@ android {
                 abiFilters.add("arm64-v8a")
             }
             cmake {
-                cppFlags += "-std=c++20"
+
             }
         }
     }
@@ -32,6 +32,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            externalNativeBuild {
+                cmake {
+                    arguments("-D_DEBUG_:BOOL=ON")
+                }
+            }
         }
     }
     compileOptions {

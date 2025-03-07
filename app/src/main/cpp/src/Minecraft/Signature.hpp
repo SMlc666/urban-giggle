@@ -1,0 +1,13 @@
+//
+// Created by qq103 on 2025/3/7.
+//
+
+#ifndef MINERAFT_TOOLBOX_SIGNATURE_HPP
+#define MINERAFT_TOOLBOX_SIGNATURE_HPP
+
+
+class Signature {
+};
+
+
+#endif//MINERAFT_TOOLBOX_SIGNATURE_HPP
