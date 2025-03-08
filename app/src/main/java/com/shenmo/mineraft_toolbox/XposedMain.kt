@@ -21,6 +21,19 @@ class XposedMain  : IXposedHookLoadPackage {
                         override fun afterHookedMethod(param: MethodHookParam) {
                             super.afterHookedMethod(param)
                             Log.d("ToolBox", "MainActivity onCreate")
+
+                            // 获取当前 Activity 的上下文
+                            val activity = param.thisObject as Activity
+                            // 创建并显示 AlertDialog
+                            AlertDialog.Builder(activity)
+                                .setTitle("ToolBox")
+                                .setMessage("MinecraftPE")
+                                .setPositiveButton("确定") { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                .show()
+
+                            Log.d("ToolBox", "AlertDialog shown")
                         }
                     })
                 Log.d("ToolBox", "find MinecraftPE")
