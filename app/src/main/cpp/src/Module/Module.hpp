@@ -8,18 +8,10 @@
 #include <string>
 class Module {
 public:
-  Module(const std::string &name, const std::string &description,
-         Menu::MenuID menuID);
-  Module(const std::string &name, Menu::MenuID menuID);
-  [[nodiscard]] const std::string &getName() const;
-  [[nodiscard]] const std::string &getDescription() const;
-  [[nodiscard]] bool hasDescription() const;
-  [[nodiscard]] Menu::MenuID getMenuID() const;
-
-private:
-  std::string m_name;
-  std::string m_description;
-  Menu::MenuID m_menuID;
+  Module() = default;
+  [[nodiscard]] virtual const std::string &getName() const = 0;
+  [[nodiscard]] virtual const std::string &getDescription() const = 0;
+  [[nodiscard]] virtual Menu::MenuID getMenuID() const = 0;
 };
 
 #endif // MINERAFT_TOOLBOX_MODULE_HPP

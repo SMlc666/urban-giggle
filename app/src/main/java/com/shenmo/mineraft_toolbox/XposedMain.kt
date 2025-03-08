@@ -3,6 +3,8 @@ package com.shenmo.mineraft_toolbox
 import android.util.Log
 import com.shenmo.mineraft_toolbox.instance.instance
 import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class XposedMain  : IXposedHookLoadPackage {

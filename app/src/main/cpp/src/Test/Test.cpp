@@ -8,16 +8,18 @@
 #include "Log/Log.hpp"
 #include "MemTool/MemTool.hpp"
 #include <thread>
-
+#include "Minecraft/Event/EventDispatch.hpp"
+#include "Minecraft/Event/Events/ModuleLoadEvent.hpp"
 static Init init_Test(
     "init-Test",
     []() {
       TOOLBOX_LOG_D("Test init");
-      std::thread([]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-        void *moduleBase = MemTool::getModuleBase<void *>("libminecraftpe.so");
-        TOOLBOX_LOG_D("libminecraftpe.so base address: %p", moduleBase);
-      }).detach();
+      Minecraft::g_eventDispatcher.appendListener(
+          Minecraft::EventID::E_MODULE_LOAD, [](std::shared_ptr<Minecraft::Event> event) {
+            TOOLBOX_LOG_D("%s received", event->getName().c_str());
+            uintptr_t modulebase = any_cast<uintptr_t>(event->getData());
+            TOOLBOX_LOG_D("Module base address: 0x%p", modulebase);
+          });
     },
     1);
 #endif

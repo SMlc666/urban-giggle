@@ -4,10 +4,11 @@
 
 #ifndef MINERAFT_TOOLBOX_EVENTDISPATCH_HPP
 #define MINERAFT_TOOLBOX_EVENTDISPATCH_HPP
+#include "Events/Event.hpp"
 #include "eventpp/eventdispatcher.h"
 #include "Events/EventId.hpp"
 namespace Minecraft {
-extern eventpp::EventDispatcher<EventID, void()> g_eventDispatcher;
+extern eventpp::EventDispatcher<EventID, void(std::shared_ptr<Event>)> g_eventDispatcher;
 } // namespace Minecraft
 
 #endif //MINERAFT_TOOLBOX_EVENTDISPATCH_HPP
