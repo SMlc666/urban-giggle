@@ -5,5 +5,5 @@
 #pragma once
 #include "Module/Manager/Manager.hpp"
 namespace Instance {
-Manager &getManager();
+Module::Manager &getManager();
 } // namespace Instance

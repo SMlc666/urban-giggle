@@ -5,6 +5,7 @@
 #pragma once
 #include "Module/Module.hpp"
 #include <unordered_map>
+namespace Module {
 class Manager {
 public:
   Manager() = default;
@@ -17,3 +18,4 @@ public:
 private:
   std::unordered_map<std::string, Module *> m_modules;
 };
+} // namespace Module

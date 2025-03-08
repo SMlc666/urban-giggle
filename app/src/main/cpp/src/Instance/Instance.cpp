@@ -6,8 +6,10 @@
 #include "Init/Init.hpp"
 #include "Log/Log.hpp"
 namespace Instance {
-Manager manager;
+Module::Manager manager;
 Init init_Instance("init_Instance",
                    []() { TOOLBOX_LOG_D("Manager addr %p", &getManager()); });
-Manager &getManager() { return manager; }
+Module::Manager &getManager() {
+  return manager;
+}
 } // namespace Instance
