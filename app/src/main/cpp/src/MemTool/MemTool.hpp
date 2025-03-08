@@ -8,15 +8,16 @@
 #include <format>
 #include <shadowhook.h>
 #include <string>
+#include <arm_neon.h>
 namespace MemTool {
 template <typename T> inline T getModuleBase(const std::string &moduleName) {
     KittyScanner::ElfScanner Module =
             KittyScanner::ElfScanner::createWithPath(moduleName);
-    uintptr_t base = Module.baseSegment().startAddress;
-    return reinterpret_cast<T>(base);
-  }
-
-  class [[maybe_unused]] Hook {
+  uintptr_t base = Module.base();
+  return reinterpret_cast<T>(base);
+}
+size_t getModuleSize(const std::string &moduleName);
+class [[maybe_unused]] Hook {
 public:
   Hook() = default;
   template <typename T>

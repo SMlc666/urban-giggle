@@ -4,10 +4,9 @@
 
 #ifndef MINERAFT_TOOLBOX_UTILS_HPP
 #define MINERAFT_TOOLBOX_UTILS_HPP
-
-
-class Utils {
-};
-
+#include "eventpp/eventdispatcher.h"
+namespace Minecraft {
+template <typename T = uintptr_t> T getMCModuleBase();
+} // namespace Minecraft
 
 #endif//MINERAFT_TOOLBOX_UTILS_HPP
