@@ -3,6 +3,6 @@
 //
 
 #pragma once
-
-class Script {
-};
+namespace Script {
+class Script {};
+} // namespace Script

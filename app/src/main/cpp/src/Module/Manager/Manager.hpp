@@ -12,8 +12,8 @@ public:
   ~Manager() = default;
   void addModule(Module *module);
   void removeModule(const std::string &name);
-  Module *getModule(const std::string &name) const;
-  std::unordered_map<std::string, Module *> getModules() const;
+  [[nodiscard]] Module *getModule(const std::string &name) const;
+  [[nodiscard]] std::unordered_map<std::string, Module *> getModules() const;
 
 private:
   std::unordered_map<std::string, Module *> m_modules;

@@ -19,8 +19,8 @@ size_t getModuleSize(const std::string &moduleName);
 class [[maybe_unused]] Hook {
 public:
   Hook() = default;
-  template <typename T>
-  [[maybe_unused]] Hook(void *funcAddr, T *newAddr, bool autoDestroy = true)
+  template <typename U, typename T>
+  [[maybe_unused]] Hook(U funcAddr, T *newAddr, bool autoDestroy = true)
       : mAutoDestroy(autoDestroy), mNewAddr(reinterpret_cast<void *>(newAddr)),
         mFuncAddr(reinterpret_cast<void *>(funcAddr)) {
     if (mFuncAddr == nullptr || mNewAddr == nullptr) {

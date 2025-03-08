@@ -23,6 +23,11 @@ file(GLOB TOOLBOX_SOURCES
         "src/Init/*.cpp"
         "src/Module/*.cpp"
         "src/Module/Manager/*.cpp"
+        "src/Module/Config/*.cpp"
+        "src/Module/GUI/*.cpp"
+        "src/Module/GUI/Controls/*.cpp"
+        "src/Module/GUI/Manager/*.cpp"
+        "src/Module/Event/*.cpp"
         "src/Script/*.cpp"
 )
 set(TOOLBOX_INCLUDE_DIRS

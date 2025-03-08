@@ -3,3 +3,11 @@
 //
 
 #pragma once
+namespace Module {
+enum EventId {
+  ENABLE_MODULE,
+  DISABLE_MODULE,
+  LOAD_MODULE,
+  UNLOAD_MODULE,
+};
+}
