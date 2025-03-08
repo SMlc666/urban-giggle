@@ -2,8 +2,7 @@
 // Created by qq103 on 2025/3/2.
 //
 
-#ifndef MINERAFT_TOOLBOX_JNI_INSTANCE_HPP
-#define MINERAFT_TOOLBOX_JNI_INSTANCE_HPP
+#pragma once
 #include <jni.h>
 
 #ifdef __cplusplus
@@ -21,4 +20,3 @@ Java_com_shenmo_mineraft_1toolbox_instance_instance_getManager(JNIEnv *,
 #ifdef __cplusplus
 }
 #endif
-#endif // MINERAFT_TOOLBOX_JNI_INSTANCE_HPP

@@ -2,8 +2,7 @@
 // Created by qq103 on 2025/3/2.
 //
 
-#ifndef MINERAFT_TOOLBOX_MANAGER_HPP
-#define MINERAFT_TOOLBOX_MANAGER_HPP
+#pragma once
 #include "Module/Module.hpp"
 #include <unordered_map>
 class Manager {
@@ -18,5 +17,3 @@ public:
 private:
   std::unordered_map<std::string, Module *> m_modules;
 };
-
-#endif // MINERAFT_TOOLBOX_MANAGER_HPP

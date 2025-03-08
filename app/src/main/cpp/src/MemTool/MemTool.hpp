@@ -2,8 +2,7 @@
 // Created by qq103 on 2025/3/1.
 //
 
-#ifndef MBLOADER_MEMTOOL_HPP
-#define MBLOADER_MEMTOOL_HPP
+#pragma once
 #include "KittyMemory/KittyInclude.hpp"
 #include <format>
 #include <shadowhook.h>
@@ -80,5 +79,3 @@ private:
 };
 
 } // namespace MemTool
-
-#endif //MBLOADER_MEMTOOL_HPP

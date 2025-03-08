@@ -2,8 +2,7 @@
 // Created by qq103 on 2025/3/8.
 //
 
-#ifndef MINECRAFT_TOOLBOX_EVENT_HPP
-#define MINECRAFT_TOOLBOX_EVENT_HPP
+#pragma once
 #include <string>
 #include <any>
 #include "EventId.hpp"
@@ -22,5 +21,3 @@ public:
 };
 
 } // namespace Minecraft
-
-#endif //MINECRAFT_TOOLBOX_EVENT_HPP

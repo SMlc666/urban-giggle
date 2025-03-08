@@ -2,8 +2,7 @@
 // Created by qq103 on 2025/3/8.
 //
 
-#ifndef MINERAFT_TOOLBOX_MODULELOADEVENT_HPP
-#define MINERAFT_TOOLBOX_MODULELOADEVENT_HPP
+#pragma once
 #include "Event.hpp"
 namespace Minecraft {
 class ModuleLoadEvent : public Event {
@@ -17,5 +16,3 @@ public:
   [[nodiscard]] std::any getData() const override;
 };
 } // namespace Minecraft
-
-#endif //MINERAFT_TOOLBOX_MODULELOADEVENT_HPP
