@@ -47,7 +47,6 @@ android {
         release {
             externalNativeBuild {
                 cmake {
-                    cppFlags.add("-hidde")
                     cppFlags.add("-O3")
                     cFlags.add("-O3")
                 }
