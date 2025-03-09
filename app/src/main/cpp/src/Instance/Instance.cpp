@@ -8,7 +8,7 @@
 namespace Instance {
 Module::ModuleManager manager;
 Init init_Instance("init_Instance",
-                   []() { TOOLBOX_LOG_D("Manager addr %p", &getManager()); });
+                   []() { TOOLBOX_LOG_D("Manager addr %p", &getModuleManager()); });
 Module::ModuleManager &getModuleManager() {
   return manager;
 }
