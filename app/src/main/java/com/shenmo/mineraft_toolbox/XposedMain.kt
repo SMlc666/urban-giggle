@@ -13,16 +13,6 @@ class XposedMain  : IXposedHookLoadPackage {
         lpparam.appInfo.packageName.let {
              Log.d("ToolBox", "handleLoadPackage: $it")
             if (it == "com.mojang.minecraftpe") {
-                XposedHelpers.findAndHookMethod(
-                    "com.mojang.minecraftpe.MainActivity",
-                    lpparam.classLoader,
-                    "onCreate",
-                    object : XC_MethodHook() {
-                        override fun afterHookedMethod(param: MethodHookParam) {
-                            super.afterHookedMethod(param)
-                            Log.d("ToolBox", "MainActivity onCreate")
-                        }
-                    })
                 Log.d("ToolBox", "find MinecraftPE")
                 System.loadLibrary("mineraft_toolbox")
                 Log.d("ToolBox", "load mineraft_toolbox library")

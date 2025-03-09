@@ -6,6 +6,12 @@ include(FetchContent)
 find_package(shadowhook REQUIRED CONFIG)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
 FetchContent_MakeAvailable(json)
+FetchContent_Declare(GSL
+        GIT_REPOSITORY "https://github.com/microsoft/GSL"
+        GIT_TAG "v4.2.0"
+        GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(GSL)
 file(GLOB TOOLBOX_SOURCES
         #main sources
         "native-lib.cpp"
@@ -31,18 +37,19 @@ file(GLOB TOOLBOX_SOURCES
         "src/Script/*.cpp"
 )
 set(TOOLBOX_INCLUDE_DIRS
-    "include"
-    "src"
-    "."
+        "include"
+        "src"
+        "."
 )
 set(TOOLBOX_SHARED_LIBRARIES
-    android
+        android
         log
         shadowhook::shadowhook
 )
 set(TOOLBOX_STATIC_LIBRARIES
         keystone
         nlohmann_json::nlohmann_json
+        Microsoft.GSL::GSL
 )
 set(TOOLBOX_STATIC_LINK_DIRS
         "include/Keystone/"

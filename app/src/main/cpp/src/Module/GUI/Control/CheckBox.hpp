@@ -7,6 +7,6 @@
 #include "Module/GUI/GUI.hpp"
 namespace Module::GUI {
 
-class CHECKBOX : GUI {};
+class CheckBox : GUI {};
 
 } // namespace Module::GUI

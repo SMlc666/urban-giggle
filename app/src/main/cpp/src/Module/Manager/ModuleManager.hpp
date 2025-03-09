@@ -6,14 +6,15 @@
 #include "Module/Module.hpp"
 #include <unordered_map>
 namespace Module {
-class Manager {
+class ModuleManager {
 public:
-  Manager() = default;
-  ~Manager() = default;
+  ModuleManager() = default;
+  ~ModuleManager() = default;
   void addModule(Module *module);
   void removeModule(const std::string &name);
   [[nodiscard]] Module *getModule(const std::string &name) const;
   [[nodiscard]] std::unordered_map<std::string, Module *> getModules() const;
+  void forEach(const std::function<void(Module *)> &func);
 
 private:
   std::unordered_map<std::string, Module *> m_modules;

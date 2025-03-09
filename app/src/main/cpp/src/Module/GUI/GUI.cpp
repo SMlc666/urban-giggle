@@ -20,3 +20,6 @@ std::any Module::GUI::GUI::getValue() const {
 void Module::GUI::GUI::setValue(const std::any &value) {
   m_value = value;
 }
+const std::type_info &Module::GUI::GUI::getValueType() const {
+  return m_value.type();
+}
