@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "Module/Manager/Manager.hpp"
+#include "Module/Manager/ModuleManager.hpp"
 namespace Instance {
-Module::Manager &getManager();
+Module::ModuleManager &getModuleManager();
 } // namespace Instance

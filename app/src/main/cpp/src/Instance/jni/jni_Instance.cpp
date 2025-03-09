@@ -10,7 +10,7 @@ extern "C" {
 JNIEXPORT jlong JNICALL
 Java_com_shenmo_mineraft_1toolbox_instance_instance_getManager(JNIEnv *env,
                                                                jobject obj) {
-  return reinterpret_cast<jlong>(&Instance::getManager());
+  return reinterpret_cast<jlong>(&Instance::getModuleManager());
 }
 
 #ifdef __cplusplus
