@@ -18,6 +18,8 @@ file(GLOB TOOLBOX_SOURCES
         #Package sources
         "include/KittyMemory/*.cpp"
         "include/Lua/*.c"
+        "include/imgui/*.cpp"
+        "include/imgui/backends/*.cpp"
         #Project sources
         "src/Test/*.cpp"
         "src/Minecraft/*.cpp"
@@ -32,10 +34,15 @@ file(GLOB TOOLBOX_SOURCES
         "src/Module/Manager/*.cpp"
         "src/Module/Config/*.cpp"
         "src/Module/GUI/*.cpp"
+        "src/Module/GUI/Draw/*.cpp"
+        "src/Module/GUI/Draw/ImGuiDraw/*.cpp"
+        "src/Module/GUI/Draw/Touch/*.cpp"
         "src/Module/GUI/Controls/*.cpp"
         "src/Module/GUI/Manager/*.cpp"
         "src/Module/Event/*.cpp"
         "src/Script/*.cpp"
+        "src/Utils/*.cpp"
+        
 )
 set(TOOLBOX_INCLUDE_DIRS
         "include"
@@ -46,6 +53,8 @@ set(TOOLBOX_SHARED_LIBRARIES
         android
         log
         shadowhook::shadowhook
+        EGL
+        GLESv3
 )
 set(TOOLBOX_STATIC_LIBRARIES
         keystone

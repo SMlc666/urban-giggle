@@ -21,14 +21,15 @@ MemTool::Hook android_dlopen_ext_;
 void *android_dlopen_ext_new(const char *__filename, int __flags, const android_dlextinfo *__info) {
   //TOOLBOX_LOG_D("android_dlopen_ext_new %s", __filename);
   auto *ret = android_dlopen_ext_.callOld<void *>(__filename, __flags, __info);
-  if (!is_first_call) {
-    if (std::string(__filename).find("libminecraftpe.so") != std::string::npos) {
+  if (!is_first_call && ret != nullptr) {
+    if (std::string(__filename).find("libminecraftpe.so") != std::string::npos &&
+        __flags == RTLD_NOW) {
       is_first_call = true;
       uintptr_t moduleBase = MemTool::getModuleBase<uintptr_t>("libminecraftpe.so");
       Minecraft::g_ModuleBase = moduleBase;
       Minecraft::g_eventDispatcher.dispatch(Minecraft::EventID::E_MODULE_LOAD,
                                             std::make_shared<Minecraft::ModuleLoadEvent>(
-                                                moduleBase)); //监听事件，需要优先级比该Init高
+                                                moduleBase, ret)); //监听事件，需要优先级比该Init高
       //TOOLBOX_LOG_D("libminecraftpe.so base: %p", moduleBase);
     }
   }

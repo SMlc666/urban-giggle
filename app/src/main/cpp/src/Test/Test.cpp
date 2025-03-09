@@ -17,8 +17,10 @@ static Init init_Test(
       Minecraft::g_eventDispatcher.appendListener(
           Minecraft::EventID::E_MODULE_LOAD, [](std::shared_ptr<Minecraft::Event> event) {
             TOOLBOX_LOG_D("%s received", event->getName().c_str());
-            uintptr_t modulebase = any_cast<uintptr_t>(event->getData());
-            TOOLBOX_LOG_D("Module base address: 0x%p", modulebase);
+            //            uintptr_t modulebase = any_cast<uintptr_t>(event->getData());
+            auto data = any_cast<Minecraft::ModuleLoadEvent::Data>(event->getData());
+            TOOLBOX_LOG_D("Module base address: 0x%p handle: 0x%p", data.module_base_addr,
+                          data.module_handle);
           });
     },
     1);

@@ -8,6 +8,7 @@
 #include <shadowhook.h>
 #include <string>
 #include <arm_neon.h>
+#include <gsl/gsl>
 namespace MemTool {
 template <typename T> inline T getModuleBase(const std::string &moduleName) {
     KittyScanner::ElfScanner Module =
@@ -42,7 +43,21 @@ public:
     if (newAddr == nullptr) {
       throw std::runtime_error("newAddr is nullptr");
     }
-    mStub = shadowhook_hook_sym_name(libName.c_str(), symName.c_str(), mNewAddr, &mOldAddr);
+    mStub = shadowhook_hook_sym_name(libName.c_str(), symName.c_str(), mNewAddr,
+                                     reinterpret_cast<void **>(&mOldAddr));
+    //    void *handle = shadowhook_dlopen(libName.c_str());
+    //    if (handle == nullptr) {
+    //      throw std::runtime_error("shadowhook_dlopen failed");
+    //    }
+    //    auto deleter = gsl::finally([&]() { shadowhook_dlclose(handle); }); //auto deleter for dlclose
+    //    void *symAddr = shadowhook_dlsym(handle, symName.c_str());
+    //    if (symAddr == nullptr) {
+    //      int error_num = shadowhook_get_errno();
+    //      const char *error_msg = shadowhook_to_errmsg(error_num);
+    //      throw std::runtime_error(
+    //          std::format("shadowhook_dlsym failed with errornum, msg: {} {}", error_num, error_msg));
+    //    }
+    //    mStub = shadowhook_hook_func_addr(symAddr, mNewAddr, &mOldAddr);
     if (mStub == nullptr) {
       int error_num = shadowhook_get_errno();
       const char* error_msg = shadowhook_to_errmsg(error_num);

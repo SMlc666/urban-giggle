@@ -1,21 +1,22 @@
 //
-// Created by qq103 on 2025/3/8.
+// Created by qq103 on 2025/3/9.
 //
 
 #pragma once
 #include "Event.hpp"
+#include <EGL/egl.h>
 namespace Minecraft {
-class ModuleLoadEvent : public Event {
+class eglSwapBuffersEvent : public Event {
 private:
-  uintptr_t m_module_base_addr;
-  void *m_module_handle;
+  EGLDisplay *m_display;
+  EGLSurface *m_surface;
 
 public:
   struct Data {
-    uintptr_t module_base_addr;
-    void *module_handle;
+    EGLDisplay *display;
+    EGLSurface *surface;
   };
-  ModuleLoadEvent(uintptr_t module_base_addr, void *module_handle);
+  eglSwapBuffersEvent(EGLDisplay *display, EGLSurface *surface);
   [[nodiscard]] EventID getID() const override;
   [[nodiscard]] std::string getName() const override;
   [[nodiscard]] std::any getData() const override;
