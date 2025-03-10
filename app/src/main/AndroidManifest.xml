@@ -21,7 +21,7 @@
         <!--        作用: 提供模块的简短描述，用于Xposed Installer等工具展示。-->
         <meta-data
             android:name="xposedminversion"
-            android:value="82" />
+            android:value="93" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
